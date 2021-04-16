@@ -13,7 +13,7 @@ jobs:
       matrix:
         configuration: [Debug, Release]
 
-    if: github.event.push.ref == 'refs/heads/master' || (github.event.review.state == 'approved' && github.event.review.author_association == 'COLLABORATOR')
+    if: ${{ github.event.push.ref == 'refs/heads/master' || (github.event.review.state == 'approved' && (github.event.review.author_association == 'COLLABORATOR' || github.event.review.author_association == 'OWNER')) }}
     runs-on: dsp-installed  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 

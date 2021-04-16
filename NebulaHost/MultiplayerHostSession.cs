@@ -24,7 +24,7 @@ namespace NebulaHost
         public StatisticsManager StatisticsManager { get; protected set; }
 
         float gameStateUpdateTimer = 0f;
-        float gameResearchHashUpdateTimer = 0;
+        float gameResearchHashUpdateTimer = 0f;
         float productionStatisticsUpdateTimer = 0;
         
 

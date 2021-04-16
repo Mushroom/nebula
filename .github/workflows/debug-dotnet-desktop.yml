@@ -41,6 +41,12 @@ jobs:
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
+        
+    # Build it
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.3

@@ -23,7 +23,7 @@ namespace NebulaHost
         public NetPacketProcessor PacketProcessor { get; protected set; }
         public StatisticsManager StatisticsManager { get; protected set; }
 
-        float gameStateUpdateTimer = 0;
+        float gameStateUpdateTimer = 0f;
         float gameResearchHashUpdateTimer = 0;
         float productionStatisticsUpdateTimer = 0;
         

@@ -33,7 +33,7 @@ jobs:
         dotnet-version: 5.0.x
         
     - name: Clear output directory in DSP files
-      run: rm -R C:\Program Files (x86)\Steam\steamapps\common\Dyson Sphere Program\BepInEx\plugins\Nebula
+      run: rm -R "C:\Program Files (x86)\Steam\steamapps\common\Dyson Sphere Program\BepInEx\plugins\Nebula"
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe

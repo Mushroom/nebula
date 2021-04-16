@@ -24,12 +24,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      - name: Setup VS Dev Environment
-        uses: seanmiddleditch/gha-setup-vsdevenv@v3
-        with:
-          arch: amd64
-          host_arch: amd64
+      
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1
           
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.0.2

@@ -3,7 +3,6 @@ using NebulaModel.Networking;
 using NebulaModel.Packets.Logistics;
 using NebulaModel.Packets.Processors;
 using NebulaWorld;
-using NebulaWorld.Factory;
 using NebulaWorld.Logistics;
 using System.Collections.Generic;
 
@@ -70,10 +69,7 @@ namespace NebulaHost.PacketProcessors.Logistics
             }
             // always update values for host, but he does not need to rely on the mimic flag (infact its bad for him)
             packet.ShouldMimic = false;
-            using(FactoryManager.EventFromClient.On())
-            {
-                SimulatedWorld.OnStationUIChange(packet);
-            }
+            SimulatedWorld.OnStationUIChange(packet);
         }
     }
 }

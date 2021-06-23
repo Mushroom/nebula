@@ -3,16 +3,19 @@ using NebulaModel.Networking;
 using NebulaModel.Packets.Logistics;
 using NebulaModel.Packets.Processors;
 using NebulaWorld;
-using UnityEngine;
+using NebulaWorld.Factory;
 
 namespace NebulaClient.PacketProcessors.Logistics
 {
     [RegisterPacketProcessor]
-    class StationUIProcessor: IPacketProcessor<StationUI>
+    class StationUIProcessor : IPacketProcessor<StationUI>
     {
         public void ProcessPacket(StationUI packet, NebulaConnection conn)
         {
-            SimulatedWorld.OnStationUIChange(packet);
+            using (FactoryManager.EventFromServer.On())
+            {
+                SimulatedWorld.OnStationUIChange(packet);
+            }
         }
     }
 }

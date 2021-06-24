@@ -4,7 +4,6 @@ using NebulaModel.Logger;
 using NebulaModel.Packets.Factory.Inserter;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 namespace NebulaWorld.Factory
 {

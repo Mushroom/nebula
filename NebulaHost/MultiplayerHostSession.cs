@@ -62,6 +62,8 @@ namespace NebulaHost
 
             socketServer.AddWebSocketService("/socket", () => new WebSocketService(PlayerManager, PacketProcessor));
 
+            LocalPlayer.TryLoadGalacticScale2();
+
             socketServer.Start();
 
             SimulatedWorld.Initialize();

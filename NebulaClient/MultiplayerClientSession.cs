@@ -61,6 +61,8 @@ namespace NebulaClient
 
         private void ConnectInternal()
         {
+            LocalPlayer.TryLoadGalacticScale2();
+
             clientSocket = new WebSocket(socketAddress);
             clientSocket.OnOpen += ClientSocket_OnOpen;
             clientSocket.OnClose += ClientSocket_OnClose;
@@ -173,7 +175,10 @@ namespace NebulaClient
             serverConnection = new NebulaConnection(clientSocket, serverEndpoint, PacketProcessor);
             IsConnected = true;
             //TODO: Maybe some challenge-response authentication mechanism?
-            SendPacket(new HandshakeRequest(CryptoUtils.GetPublicKey(CryptoUtils.GetOrCreateUserCert()), NebulaModel.Config.Options.Nickname));
+            SendPacket(new HandshakeRequest(
+                CryptoUtils.GetPublicKey(CryptoUtils.GetOrCreateUserCert()),
+                !string.IsNullOrWhiteSpace(Config.Options.Nickname) ? Config.Options.Nickname : GameMain.data.account.userName,
+                LocalPlayer.GS2_GSSettings != null));
         }
 
         static void DisableNagleAlgorithm(WebSocket socket)

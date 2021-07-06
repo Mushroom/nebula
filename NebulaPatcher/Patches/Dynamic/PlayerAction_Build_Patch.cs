@@ -31,7 +31,7 @@ namespace NebulaPatcher.Patches.Dynamic
         [HarmonyPatch(nameof(PlayerAction_Build.SetFactoryReferences))]
         public static bool SetFactoryReferences_Prefix()
         {
-            if((FactoryManager.EventFromServer || FactoryManager.EventFromClient) && FactoryManager.PacketAuthor != LocalPlayer.PlayerId)
+            if((FactoryManager.EventFromServer || FactoryManager.EventFromClient) && FactoryManager.PacketAuthor != LocalPlayer.PlayerId && FactoryManager.TargetPlanet != GameMain.localPlanet?.id)
             {
                 return false;
             }
